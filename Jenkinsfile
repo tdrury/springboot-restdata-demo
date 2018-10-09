@@ -8,5 +8,9 @@ pipeline {
                sh "mvn clean install"
             }
         }
+        stage('Results') {
+            junit 'target/**/*.xml'
+            archiveArtifacts artifacts: 'target/*.jar'
+        }
     }
 }
