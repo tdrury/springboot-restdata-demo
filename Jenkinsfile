@@ -9,8 +9,10 @@ pipeline {
             }
         }
         stage('Results') {
-            junit 'target/**/*.xml'
-            archiveArtifacts artifacts: 'target/*.jar'
+            steps {
+                junit 'target/**/*.xml'
+                archiveArtifacts artifacts: 'target/*.jar'
+            }
         }
     }
 }
