@@ -1,9 +1,11 @@
 pipeline { 
-    agent any  
+    agent {
+        docker { image '3.5-jdk-8-alpine' }
+    }
     stages { 
         stage('Build') { 
             steps { 
-               echo 'This is a minimal pipeline.' 
+               sh "mvn clean install"
             }
         }
     }
